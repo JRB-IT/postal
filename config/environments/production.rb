@@ -78,4 +78,8 @@ Rails.application.configure do
 
   # Do not dump schema after migrations.
   config.active_record.dump_schema_after_migration = false
+
+  # Fix for https://github.com/postalserver/postal/issues/2476
+  config.active_record.yaml_column_permitted_classes = [Symbol, Hash, Array, ActiveSupport::HashWithIndifferentAccess]
+  config.hosts.clear
 end
